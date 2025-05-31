@@ -18,7 +18,7 @@ async function loadImages() {
   }
 
   let url = folderUrl.replace("dl=0", "raw=1");
-  url = "https://corsproxy.io/?" + url;
+  url = "https://thingproxy.freeboard.io/fetch/" + url;
 
   const response = await fetch(url);
 
