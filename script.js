@@ -17,8 +17,8 @@ async function loadImages() {
     folderUrl = decodeURIComponent(fromURL);
   }
 
-  let url = folderUrl.replace("dl=0", "raw=1");
-  url = "https://api.allorigins.win/raw?url=" + url;
+  let url = folderUrl.replace("dl=0", "dl=1");
+  url = "https://corsproxy.io/?" + url;
 
   const response = await fetch(url);
 
