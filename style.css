@@ -1,0 +1,20 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+}
+#gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+#gallery img {
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: contain;
+}
