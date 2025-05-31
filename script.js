@@ -18,7 +18,7 @@ async function loadImages() {
   }
 
   let url = folderUrl.replace("dl=0", "raw=1");
-  url = "https://api.allorigins.win/raw?url=" + encodeURIComponent(url);
+  url = "https://api.allorigins.win/raw?url=" + url;
 
   const response = await fetch(url);
 
