@@ -45,7 +45,7 @@ async function loadImages() {
     await loadActiveImage(0);
   } catch (err) {
     console.error(err);
-    alert("Could not load images. Make sure the folder is public.");
+    alert(err);
   }
 }
 
