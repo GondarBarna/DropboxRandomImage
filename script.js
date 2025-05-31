@@ -17,7 +17,8 @@ async function loadImages() {
     folderUrl = decodeURIComponent(fromURL);
   }
 
-  const url = folderUrl.replace("dl=0", "raw=1");
+  let url = folderUrl.replace("dl=0", "raw=1");
+  url = "https://corsproxy.io/?" + url;
 
   try {
     const response = await fetch(url);
