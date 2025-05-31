@@ -18,7 +18,7 @@ async function loadImages() {
   }
 
   let url = folderUrl.replace("dl=0", "raw=1");
-  url = "https://thingproxy.freeboard.io/fetch/" + url;
+  url = "https://api.allorigins.win/raw?url=" + encodeURIComponent(url);
 
   const response = await fetch(url);
 
