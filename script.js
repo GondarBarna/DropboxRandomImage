@@ -20,33 +20,28 @@ async function loadImages() {
   let url = folderUrl.replace("dl=0", "raw=1");
   url = "https://corsproxy.io/?" + url;
 
-  try {
-    const response = await fetch(url);
+  const response = await fetch(url);
 
-    const blob = await response.blob();
-    const zip = await JSZip.loadAsync(blob);
+  const blob = await response.blob();
+  const zip = await JSZip.loadAsync(blob);
 
-    // Collect image files (jpg, png, gif, webp)
-    zip.forEach((relativePath, file) => {
-      if (!file.dir && /\.(jpg|jpeg|png|gif|webp)$/i.test(file.name)) {
-        imageFiles.push(file);
-      }
-    });
-
-    // Show images
-    if (imageFiles.length === 0) {
-      gallery.innerHTML = "<p>No images found.</p>";
-      return;
+  // Collect image files (jpg, png, gif, webp)
+  zip.forEach((relativePath, file) => {
+    if (!file.dir && /\.(jpg|jpeg|png|gif|webp)$/i.test(file.name)) {
+      imageFiles.push(file);
     }
+  });
 
-    // Shuffle the array
-    imageFiles = imageFiles.sort(() => Math.random() - 0.5);
-
-    await loadActiveImage(0);
-  } catch (err) {
-    console.error(err);
-    alert(err);
+  // Show images
+  if (imageFiles.length === 0) {
+    gallery.innerHTML = "<p>No images found.</p>";
+    return;
   }
+
+  // Shuffle the array
+  imageFiles = imageFiles.sort(() => Math.random() - 0.5);
+
+  await loadActiveImage(0);
 }
 
 async function loadActiveImage()
